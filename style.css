@@ -57,6 +57,29 @@ body::before{
 	padding:0;
 	width:100%;
 }
+
+/* Language Toggle Button */
+.language-toggle{
+	order:-1;
+	padding:8px 12px;
+	font-size:0.85rem;
+	font-weight:600;
+	background-color:rgba(255,255,255,0.95);
+	color:#0070c5;
+	border:none;
+	border-radius:6px;
+	cursor:pointer;
+	transition:all 0.3s ease;
+	white-space:nowrap;
+	box-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+
+.language-toggle:hover{
+	background-color:#ffffff;
+	transform:translateY(-2px);
+	box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
 .logo{
 	width:84px;
 	height:auto;
@@ -268,6 +291,253 @@ body::before{
 /* Footer */
 .site-footer{max-width:1100px;margin:24px auto;color:rgba(255,255,255,0.8);padding:8px 16px}
 
+/* Grid Section - Bootstrap responsive three-column layout */
+.grid-section{
+	background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
+	padding:48px 16px;
+	margin:40px auto;
+	position:relative;
+	z-index:1;
+}
+
+.grid-section-title{
+	margin:0 0 32px 0;
+	font-size:1.8rem;
+	color:#005A9C;
+	text-align:center;
+	font-weight:600;
+}
+
+/* Card styling for grid items */
+.grid-card{
+	background:var(--card-bg);
+	padding:24px;
+	border-radius:12px;
+	box-shadow:0 4px 12px rgba(2,6,23,0.08);
+	border-top:4px solid var(--intel-blue);
+	transition:all 220ms ease-out;
+	height:100%;
+	display:flex;
+	flex-direction:column;
+}
+
+.grid-card:hover{
+	box-shadow:0 8px 20px rgba(2,6,23,0.12);
+	transform:translateY(-4px);
+}
+
+.grid-card-title{
+	margin:0 0 12px 0;
+	color:#0071C5;
+	font-size:1.2rem;
+	font-weight:600;
+}
+
+.grid-card-text{
+	margin:0;
+	color:#4b5966;
+	font-size:0.95rem;
+	line-height:1.6;
+	flex-grow:1;
+}
+
+/* Newsletter Section - Bootstrap Form */
+.newsletter-section{
+	background:linear-gradient(135deg, rgba(0,113,197,0.08), rgba(0,90,156,0.06));
+	padding:64px 16px;
+	margin:40px auto;
+	position:relative;
+	z-index:1;
+}
+
+.newsletter-title{
+	margin:0 0 12px 0;
+	font-size:1.8rem;
+	color:#005A9C;
+	text-align:center;
+	font-weight:600;
+}
+
+.newsletter-subtitle{
+	margin:0 0 28px 0;
+	font-size:1.05rem;
+	color:#4b5966;
+	text-align:center;
+	line-height:1.5;
+}
+
+/* Form styling for accessibility and usability */
+.newsletter-form{
+	background:white;
+	padding:32px;
+	border-radius:12px;
+	box-shadow:0 4px 16px rgba(2,6,23,0.12);
+}
+
+/* Bootstrap form label enhancements for clarity */
+.form-label{
+	font-weight:600;
+	color:#005A9C;
+	margin-bottom:8px;
+	display:block;
+}
+
+/* Input styling with focus states for accessibility */
+.form-control{
+	border:2px solid #e0e6ed;
+	border-radius:8px;
+	padding:12px 16px;
+	font-size:1rem;
+	transition:all 220ms ease-out;
+	color:#2b3b41;
+}
+
+.form-control:focus{
+	border-color:#0071C5;
+	box-shadow:0 0 0 3px rgba(0,113,197,0.1);
+	outline:none;
+}
+
+/* Helper text for form accessibility */
+.form-text{
+	font-size:0.875rem;
+	color:#4b5966;
+	margin-top:6px;
+}
+
+/* Checkbox styling */
+.form-check-input{
+	width:20px;
+	height:20px;
+	border:2px solid #e0e6ed;
+	cursor:pointer;
+	transition:all 220ms ease-out;
+}
+
+.form-check-input:focus{
+	border-color:#0071C5;
+	box-shadow:0 0 0 3px rgba(0,113,197,0.1);
+	outline:none;
+}
+
+.form-check-input:checked{
+	background-color:#0071C5;
+	border-color:#005A9C;
+}
+
+.form-check-label{
+	cursor:pointer;
+	color:#2b3b41;
+	font-weight:500;
+	margin-left:8px;
+}
+
+/* Bootstrap Button styling */
+.btn-primary{
+	background-color:#0071C5;
+	border-color:#0071C5;
+	font-weight:600;
+	padding:12px 24px;
+	font-size:1rem;
+	transition:all 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-primary:hover{
+	background-color:#005A9C;
+	border-color:#005A9C;
+	transform:translateY(-2px);
+	box-shadow:0 4px 12px rgba(0,113,197,0.3);
+}
+
+.btn-primary:focus{
+	box-shadow:0 0 0 3px rgba(0,113,197,0.25);
+	outline:none;
+}
+
+.btn-primary:active{
+	transform:translateY(0);
+}
+
+/* Updated Footer - More comprehensive */
+.site-footer{
+	background:linear-gradient(180deg, #1a2a32 0%, #0f1a21 100%);
+	color:rgba(255,255,255,0.85);
+	padding:48px 16px 24px;
+	margin-top:40px;
+	position:relative;
+	z-index:1;
+}
+
+.footer-content{
+	margin-bottom:32px;
+}
+
+.footer-section{
+	margin-bottom:24px;
+}
+
+.footer-heading{
+	color:rgba(255,255,255,0.95);
+	font-size:1.1rem;
+	font-weight:600;
+	margin-bottom:16px;
+}
+
+.footer-section p{
+	margin-bottom:12px;
+	font-size:0.95rem;
+	line-height:1.6;
+	color:rgba(255,255,255,0.8);
+}
+
+/* Footer Navigation */
+.footer-nav-list{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+
+.footer-nav-list li{
+	margin-bottom:12px;
+}
+
+.footer-link{
+	color:rgba(255,255,255,0.8);
+	text-decoration:none;
+	transition:all 220ms ease-out;
+	font-size:0.95rem;
+}
+
+.footer-link:hover{
+	color:#0071C5;
+	text-decoration:underline;
+}
+
+.footer-link:focus{
+	outline:2px solid #0071C5;
+	outline-offset:4px;
+	color:#0071C5;
+}
+
+/* Footer Bottom (Copyright) */
+.footer-divider{
+	border:none;
+	border-top:1px solid rgba(255,255,255,0.1);
+	margin:24px 0;
+}
+
+.footer-bottom{
+	text-align:center;
+	padding-top:16px;
+	border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.footer-copyright{
+	margin:0;
+	font-size:0.85rem;
+	color:rgba(255,255,255,0.65);
+}
+
 /* Responsive: stack vertically on narrow screens */
 @media (max-width:800px){
 	body{
@@ -281,4 +551,103 @@ body::before{
 
 @media (prefers-reduced-motion:reduce){
 	.milestone,.milestone-details{transition:none}
+}
+/* RTL (Right-to-Left) Support for Arabic and other RTL languages */
+html[dir="rtl"] .hero-inner {
+	flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .language-toggle {
+	order: 0;
+}
+
+html[dir="rtl"] .hero-text h1,
+html[dir="rtl"] .hero-text .sub {
+	text-align: right;
+}
+
+html[dir="rtl"] .section-title {
+	margin: 0 8px 16px 0;
+	text-align: right;
+}
+
+html[dir="rtl"] .timeline {
+	direction: rtl;
+	flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .milestone {
+	text-align: right;
+}
+
+html[dir="rtl"] .milestone-head {
+	text-align: right;
+}
+
+html[dir="rtl"] .milestone-date {
+	text-align: right;
+}
+
+html[dir="rtl"] .grid-section-title {
+	text-align: right;
+}
+
+html[dir="rtl"] .grid-card {
+	text-align: right;
+}
+
+html[dir="rtl"] .reflection-title {
+	text-align: right;
+}
+
+html[dir="rtl"] .reflection-card h3 {
+	text-align: right;
+}
+
+html[dir="rtl"] .reflection-card p {
+	text-align: right;
+}
+
+html[dir="rtl"] .reflection-input {
+	text-align: right;
+	direction: rtl;
+}
+
+html[dir="rtl"] .newsletter-title {
+	text-align: right;
+}
+
+html[dir="rtl"] .newsletter-subtitle {
+	text-align: right;
+}
+
+html[dir="rtl"] .site-footer {
+	text-align: right;
+}
+
+html[dir="rtl"] .footer-section {
+	text-align: right;
+}
+
+html[dir="rtl"] .footer-nav-list {
+	text-align: right;
+}
+
+html[dir="rtl"] .form-label {
+	text-align: right;
+	display: block;
+}
+
+html[dir="rtl"] .form-text {
+	text-align: right;
+}
+
+/* Ensure images work properly in both directions */
+html[dir="rtl"] .milestone-image {
+	margin-right: 0;
+	margin-left: 0;
+}
+
+html[dir="rtl"] .logo {
+	order: 1;
 }
