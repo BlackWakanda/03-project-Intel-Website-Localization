@@ -1,0 +1,284 @@
+/* Beginner-friendly CSS: Hero + Responsive Timeline
+	 - Uses Flexbox for layout
+	 - Horizontal scrolling on wide screens, stacked on small screens
+	 - Hover reveals extra details in each milestone card
+*/
+
+:root{
+	--intel-blue: #0070c5a3;
+	--intel-deep: #005b9c77;
+	--bg-light: #f6fbff;
+	--card-bg: #ffffff;
+	--muted-text: #4b5966;
+}
+
+*{box-sizing:border-box}
+body{
+	margin:0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background-image:url('img/360_F_425652429_A311W0NFAGrxzsTtmOQEkczAl3d3GlYG.jpg');
+	background-size:cover;
+	background-position:center;
+	background-attachment:fixed;
+	background-repeat:no-repeat;
+	color: white;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	position:relative;
+}
+
+/* Overlay for text readability */
+body::before{
+	content:'';
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:linear-gradient(135deg, rgba(0,113,197,0.75) 0%, rgba(0,90,156,0.75) 100%);
+	pointer-events:none;
+	z-index:-1;
+}
+
+/* Hero */
+.hero{
+	background-image:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.15));
+	padding:48px 16px;
+	position:relative;
+	z-index:1;
+}
+.hero-inner{
+	max-width:1100px;
+	margin:0 auto;
+	display:flex;
+	align-items:center;
+	gap:20px;
+	flex-wrap:wrap;
+	padding:0;
+	width:100%;
+}
+.logo{
+	width:84px;
+	height:auto;
+	flex:0 0 auto;
+}
+.hero-text h1{
+	margin:0 0 8px 0;
+	font-size:clamp(1.4rem, 4vw, 2.4rem);
+	line-height:1.05;
+}
+.hero-text .sub{
+	margin:0;
+	color:rgba(255,255,255,0.92);
+	max-width:56rem;
+}
+
+/* Content area (lighter background so timeline cards stand out) */
+.content{
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+	padding:28px 16px 48px;
+}
+.timeline-section{
+	max-width:1100px;
+	margin:0 auto;
+	position:relative;
+	z-index:1;
+}
+.section-title{
+	margin:0 0 16px 8px;
+	font-size:1.1rem;
+	color:rgba(255,255,255,0.95);
+}
+
+/* Timeline row - horizontal scroll on wide screens */
+.timeline{
+	display:flex;
+	gap:20px;
+	padding:12px 8px;
+	overflow-x:auto;
+	scroll-snap-type:x mandatory;
+	scroll-behavior:smooth;
+	scroll-padding:16px;
+	-webkit-overflow-scrolling:touch;
+}
+.timeline::-webkit-scrollbar{height:10px}
+.timeline::-webkit-scrollbar-track{background:rgba(255,255,255,0.05);border-radius:6px}
+.timeline::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.3);border-radius:6px;transition:background 220ms}
+.timeline::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.5)}
+
+.milestone{
+	--card-width:320px;
+	flex:0 0 var(--card-width);
+	background:var(--card-bg);
+	color:var(--muted-text);
+	padding:0;
+	border-radius:12px;
+	box-shadow:0 6px 20px rgba(2,6,23,0.12);
+	border-left:6px solid var(--intel-blue);
+	scroll-snap-align:center;
+	scroll-snap-stop:always;
+	transition:transform 280ms cubic-bezier(0.34, 1.56, 0.64, 1), 
+	          box-shadow 280ms cubic-bezier(0.34, 1.56, 0.64, 1),
+	          border-left-color 260ms ease-out;
+	overflow:hidden;
+	display:flex;
+	flex-direction:column;
+}
+
+/* Image styling for milestones */
+.milestone-image{
+	width:100%;
+	height:180px;
+	object-fit:cover;
+	display:block;
+	transition:transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.milestone:focus-within,
+.milestone:hover{
+	transform:translateY(-8px) scale(1.03) perspective(1000px) rotateX(2deg);
+	box-shadow:0 8px 16px rgba(2,6,23,0.12),
+	            0 16px 32px rgba(0,113,197,0.15),
+	            0 24px 48px rgba(2,6,23,0.1);
+	border-left-color:#0071C5;
+}
+.milestone:hover .milestone-image{
+	transform:scale(1.08);
+}
+.milestone-head{display:flex;align-items:flex-end;gap:12px;padding:16px 16px 0 16px;transition:all 260ms ease-out}
+.milestone-date{
+	font-weight:700;color:var(--intel-blue);font-size:0.95rem;transition:color 260ms ease-out
+}
+.milestone:hover .milestone-date{
+	color:#005A9C;
+}
+.milestone-title{margin:0;font-size:1.05rem;transition:color 260ms ease-out}
+.milestone:hover .milestone-title{
+	color:#0071C5;
+}
+.milestone-summary{margin:8px 0 0 0;color:#31424a;padding:0 16px;transition:color 260ms ease-out}
+.milestone:hover .milestone-summary{
+	color:#1a2a32;
+}
+
+/* Hidden details - reveal on hover / focus */
+.milestone-details{
+	max-height:0;overflow:hidden;opacity:0;transition:all 320ms cubic-bezier(0.34, 1.56, 0.64, 1);padding:0 16px;color:#2b3b41
+}
+.milestone:hover .milestone-details,
+.milestone:focus-within .milestone-details{
+	max-height:240px;opacity:1;padding-top:12px;color:#1a2a32;
+}
+
+/* Reflection Section */
+.reflection-section{
+	max-width:1100px;
+	margin:40px auto;
+	padding:32px 16px;
+	background:rgba(255,255,255,0.95);
+	border-radius:16px;
+	position:relative;
+	z-index:1;
+}
+
+.reflection-container{
+	max-width:1000px;
+	margin:0 auto;
+}
+
+.reflection-title{
+	margin:0 0 28px 0;
+	font-size:1.8rem;
+	color:#005A9C;
+	text-align:center;
+	font-weight:600;
+}
+
+.reflection-card{
+	background:var(--card-bg);
+	padding:24px;
+	margin-bottom:24px;
+	border-radius:12px;
+	border-left:6px solid var(--intel-blue);
+	box-shadow:0 4px 12px rgba(2,6,23,0.08);
+	transition:all 220ms ease-out;
+}
+
+.reflection-card:hover{
+	box-shadow:0 8px 20px rgba(2,6,23,0.12);
+	transform:translateY(-2px);
+}
+
+.reflection-card h3{
+	margin:0 0 12px 0;
+	color:#0071C5;
+	font-size:1.2rem;
+}
+
+.reflection-card p{
+	margin:0 0 16px 0;
+	color:#4b5966;
+	font-size:0.95rem;
+	line-height:1.5;
+}
+
+.reflection-input{
+	width:100%;
+	min-height:120px;
+	padding:12px 16px;
+	font-family:inherit;
+	font-size:0.95rem;
+	border:2px solid #e0e6ed;
+	border-radius:8px;
+	resize:vertical;
+	transition:all 220ms ease-out;
+	color:#2b3b41;
+}
+
+.reflection-input:focus{
+	outline:none;
+	border-color:#0071C5;
+	box-shadow:0 0 0 3px rgba(0,113,197,0.1);
+	background:rgba(0,113,197,0.02);
+}
+
+.save-btn{
+	background:linear-gradient(135deg, #0071C5 0%, #005A9C 100%);
+	color:white;
+	padding:14px 32px;
+	font-size:1rem;
+	font-weight:600;
+	border:none;
+	border-radius:8px;
+	cursor:pointer;
+	transition:all 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+	box-shadow:0 4px 12px rgba(0,113,197,0.3);
+	display:block;
+	margin:16px auto 0;
+}
+
+.save-btn:hover{
+	transform:translateY(-2px) scale(1.05);
+	box-shadow:0 8px 20px rgba(0,113,197,0.4);
+}
+
+.save-btn:active{
+	transform:translateY(0) scale(1);
+}
+
+/* Footer */
+.site-footer{max-width:1100px;margin:24px auto;color:rgba(255,255,255,0.8);padding:8px 16px}
+
+/* Responsive: stack vertically on narrow screens */
+@media (max-width:800px){
+	body{
+		background-attachment:scroll;
+	}
+	.hero-inner{flex-direction:column;align-items:flex-start;gap:12px;padding:8px 0}
+	.logo{width:64px}
+	.timeline{flex-direction:column;overflow-x:visible}
+	.milestone{flex:1 1 auto;min-width:0;width:100%}
+}
+
+@media (prefers-reduced-motion:reduce){
+	.milestone,.milestone-details{transition:none}
+}

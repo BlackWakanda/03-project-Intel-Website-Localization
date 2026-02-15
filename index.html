@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel: Sustainability Through the Ages</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-inner">
+      <img class="logo" src="img/intel-header-logo.svg" alt="Intel Logo" onerror="this.style.display='none'" />
+      <div class="hero-text">
+        <h1>Intel Sustainability Goals</h1>
+        <p class="sub">Driving technology and innovation for a sustainable future — targets, milestones, and progress.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section">
+    <h2 class="section-title">Roadmap & Milestones</h2>
+
+    <div class="timeline" role="list">
+
+      <article class="milestone" role="listitem">
+        <img src="img/1.jpg" alt="Intel Founded - 1968" class="milestone-image" />
+        <div class="milestone-head">
+          <div class="milestone-date">1968</div>
+          <h3 class="milestone-title">Intel Founded</h3>
+        </div>
+        <p class="milestone-summary">Robert Noyce and Gordon Moore rename NM Electronics to Intel.</p>
+        <div class="milestone-details">
+          <p>Foundation for decades of technological innovation and later sustainability efforts across operations and products.</p>
+        </div>
+      </article>
+
+      <article class="milestone" role="listitem">
+        <img src="img/2.jpg" alt="First Microprocessor - 1971" class="milestone-image" />
+        <div class="milestone-head">
+          <div class="milestone-date">1971</div>
+          <h3 class="milestone-title">First Microprocessor</h3>
+        </div>
+        <p class="milestone-summary">Intel debuts the 4004, ushering in the microprocessor era.</p>
+        <div class="milestone-details">
+          <p>Microprocessors enabled vast efficiency gains in computing and later enabled innovations that support sustainability.</p>
+        </div>
+      </article>
+
+      <article class="milestone" role="listitem">
+        <img src="img/3.jpg" alt="Peak GHG Emissions - 2006" class="milestone-image" />
+        <div class="milestone-head">
+          <div class="milestone-date">2006</div>
+          <h3 class="milestone-title">Peak GHG Emissions</h3>
+        </div>
+        <p class="milestone-summary">Highest operations emissions year, prompting action.</p>
+        <div class="milestone-details">
+          <p>Intel invested in abatement, renewables, and efficiency to reduce emissions in subsequent years.</p>
+        </div>
+      </article>
+
+      <article class="milestone" role="listitem">
+        <img src="img/4.jpg" alt="RISE & 2030 Goals - 2020-2030" class="milestone-image" />
+        <div class="milestone-head">
+          <div class="milestone-date">2020–2030</div>
+          <h3 class="milestone-title">RISE & 2030 Goals</h3>
+        </div>
+        <p class="milestone-summary">Responsible, Inclusive, Sustainable, Enabling strategy.</p>
+        <div class="milestone-details">
+          <p>Ambitious goals for climate action, water stewardship, and waste reduction across the product lifecycle.</p>
+        </div>
+      </article>
+
+      <article class="milestone" role="listitem">
+        <img src="img/premium_photo-1683120974913-1ef17fdec2a8.avif" alt="Net-Zero Roadmap - 2022-2040" class="milestone-image" />
+        <div class="milestone-head">
+          <div class="milestone-date">2022–2040</div>
+          <h3 class="milestone-title">Net-Zero Roadmap</h3>
+        </div>
+        <p class="milestone-summary">Commitment to net-zero emissions by 2040 for operations.</p>
+        <div class="milestone-details">
+          <p>Combines clean energy sourcing, efficiency, and technology investments.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+  <p>Scroll to view timeline | Hover over cards to learn more!</p>
+
+  <!-- Reflection Section -->
+  <section class="reflection-section">
+    <div class="reflection-container">
+      <h2 class="reflection-title">Reflection on This Project</h2>
+      
+      <article class="reflection-card">
+        <h3>Creating a Webpage</h3>
+        <p>What was the most challenging aspect of building this timeline webpage? What did you learn?</p>
+        <textarea class="reflection-input" id="reflection-webpage" placeholder="Share your thoughts here..."></textarea>
+      </article>
+
+      <article class="reflection-card">
+        <h3>Networking</h3>
+        <p>How might understanding Intel's sustainability journey help you in future conversations with tech professionals or colleagues?</p>
+        <textarea class="reflection-input" id="reflection-networking" placeholder="Share your thoughts here..."></textarea>
+      </article>
+
+      <article class="reflection-card">
+        <h3>Company Culture</h3>
+        <p>What does Intel's commitment to sustainability tell you about their company values and culture?</p>
+        <textarea class="reflection-input" id="reflection-culture" placeholder="Share your thoughts here..."></textarea>
+      </article>
+
+      <button class="save-btn" onclick="saveReflections()">Save Your Reflections</button>
+    </div>
+  </section>
+
+  <script>
+    // Load saved reflections from local storage
+    function loadReflections() {
+      const webpage = localStorage.getItem('reflection-webpage');
+      const networking = localStorage.getItem('reflection-networking');
+      const culture = localStorage.getItem('reflection-culture');
+      
+      if (webpage) document.getElementById('reflection-webpage').value = webpage;
+      if (networking) document.getElementById('reflection-networking').value = networking;
+      if (culture) document.getElementById('reflection-culture').value = culture;
+    }
+
+    // Save reflections to local storage
+    function saveReflections() {
+      const webpage = document.getElementById('reflection-webpage').value;
+      const networking = document.getElementById('reflection-networking').value;
+      const culture = document.getElementById('reflection-culture').value;
+      
+      localStorage.setItem('reflection-webpage', webpage);
+      localStorage.setItem('reflection-networking', networking);
+      localStorage.setItem('reflection-culture', culture);
+      
+      alert('Reflections saved successfully!');
+    }
+
+    // Load reflections when page loads
+    window.addEventListener('load', loadReflections);
+  </script>
+</body>
+</html>
