@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" id="htmlElement">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap CSS - LTR version (default) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Bootstrap CSS - RTL version (loaded dynamically) -->
+  <link id="bootstrapRtl" href="" rel="stylesheet">
   <title>Intel: Sustainability Through the Ages</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,6 +15,16 @@
   <!-- Hero Section -->
   <header class="hero">
     <div class="hero-inner">
+      <!-- Language/Direction Toggle Button -->
+      <button 
+        id="directionToggle" 
+        class="btn btn-light btn-sm language-toggle" 
+        aria-label="Toggle text direction between English and Arabic"
+        title="Toggle Language (EN / AR)"
+      >
+        EN / العربية
+      </button>
+      
       <img class="logo" src="img/intel-header-logo.svg" alt="Intel Logo" onerror="this.style.display='none'" />
       <div class="hero-text">
         <h1>Intel Sustainability Goals</h1>
@@ -89,6 +103,44 @@
   </section>
   <p>Scroll to view timeline | Hover over cards to learn more!</p>
 
+  <!-- Three-Column Grid Section -->
+  <section class="grid-section">
+    <!-- Container: limits max width and centers content -->
+    <div class="container">
+      <!-- Section title -->
+      <h2 class="grid-section-title">Sustainability Pillars</h2>
+
+      <!-- Row: Bootstrap's flexbox row that holds columns -->
+      <div class="row g-4">
+        
+        <!-- Column 1: Takes 12 columns on small screens, 4 columns on medium+ screens -->
+        <div class="col-12 col-md-4">
+          <div class="grid-card">
+            <h3 class="grid-card-title">Climate Action</h3>
+            <p class="grid-card-text">Reducing greenhouse gas emissions and transitioning to clean energy sources across all operations.</p>
+          </div>
+        </div>
+
+        <!-- Column 2: Same responsive behavior as Column 1 -->
+        <div class="col-12 col-md-4">
+          <div class="grid-card">
+            <h3 class="grid-card-title">Water Stewardship</h3>
+            <p class="grid-card-text">Conserving water resources and implementing efficient water management practices in manufacturing.</p>
+          </div>
+        </div>
+
+        <!-- Column 3: Same responsive behavior as Column 1 -->
+        <div class="col-12 col-md-4">
+          <div class="grid-card">
+            <h3 class="grid-card-title">Waste Reduction</h3>
+            <p class="grid-card-text">Minimizing waste and promoting circular economy principles throughout the product lifecycle.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Reflection Section -->
   <section class="reflection-section">
     <div class="reflection-container">
@@ -116,7 +168,153 @@
     </div>
   </section>
 
+  <!-- Newsletter Subscription Section -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+          <h2 class="newsletter-title">Subscribe to Our Sustainability Newsletter</h2>
+          <p class="newsletter-subtitle">Stay informed about Intel's latest sustainability initiatives and progress.</p>
+          
+          <!-- Form with Bootstrap classes and accessibility attributes -->
+          <form class="newsletter-form" aria-label="Newsletter subscription form">
+            <!-- Email input with label -->
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">Email Address</label>
+              <input 
+                type="email" 
+                class="form-control" 
+                id="emailInput" 
+                name="email"
+                placeholder="your.email@example.com" 
+                required
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" class="form-text">We respect your privacy. Unsubscribe at any time.</div>
+            </div>
+
+            <!-- Checkbox for consent -->
+            <div class="mb-3 form-check">
+              <input 
+                type="checkbox" 
+                class="form-check-input" 
+                id="consentCheckbox" 
+                name="consent"
+                required
+                aria-describedby="consentHelp"
+              />
+              <label class="form-check-label" for="consentCheckbox">
+                I agree to receive sustainability updates from Intel
+              </label>
+              <div id="consentHelp" class="form-text">Your email will only be used for sustainability newsletter communications.</div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary w-100" aria-label="Subscribe to newsletter">
+              Subscribe Now
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row footer-content">
+        <!-- Footer Column 1: About -->
+        <div class="col-12 col-md-4 footer-section">
+          <h3 class="footer-heading">About Intel Sustainability</h3>
+          <p>Intel is committed to environmental responsibility and sustainable innovation for a better future.</p>
+        </div>
+
+        <!-- Footer Column 2: Quick Links -->
+        <div class="col-12 col-md-4 footer-section">
+          <h3 class="footer-heading">Quick Links</h3>
+          <nav aria-label="Footer navigation">
+            <ul class="footer-nav-list">
+              <li><a href="#privacy" class="footer-link">Privacy Policy</a></li>
+              <li><a href="#terms" class="footer-link">Terms of Use</a></li>
+              <li><a href="#contact" class="footer-link">Contact Us</a></li>
+              <li><a href="#sitemap" class="footer-link">Sitemap</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Footer Column 3: Contact -->
+        <div class="col-12 col-md-4 footer-section">
+          <h3 class="footer-heading">Get in Touch</h3>
+          <p>
+            <strong>Email:</strong> <a href="mailto:sustainability@intel.com" class="footer-link">sustainability@intel.com</a>
+          </p>
+          <p>
+            <strong>Phone:</strong> <a href="tel:+14085401000" class="footer-link">+1 (408) 540-1000</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Copyright Notice -->
+      <div class="footer-bottom">
+        <hr class="footer-divider" />
+        <p class="footer-copyright">&copy; 2024 Intel Corporation. All rights reserved. Intel is a registered trademark of Intel Corporation.</p>
+      </div>
+    </div>
+  </footer>
+
   <script>
+    // Language and Direction Toggle Functionality
+    function initializeDirectionToggle() {
+      const htmlElement = document.getElementById('htmlElement');
+      const directionToggle = document.getElementById('directionToggle');
+      const bootstrapRtl = document.getElementById('bootstrapRtl');
+      
+      // Load saved direction preference from localStorage
+      const savedDirection = localStorage.getItem('textDirection') || 'ltr';
+      const savedLang = localStorage.getItem('language') || 'en';
+      
+      // Apply saved direction on page load
+      applyDirection(savedDirection, savedLang);
+      
+      // Toggle direction when button is clicked
+      directionToggle.addEventListener('click', function() {
+        const currentDir = htmlElement.getAttribute('dir');
+        const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+        const newLang = currentDir === 'ltr' ? 'ar' : 'en';
+        
+        applyDirection(newDir, newLang);
+        
+        // Save preference to localStorage
+        localStorage.setItem('textDirection', newDir);
+        localStorage.setItem('language', newLang);
+      });
+      
+      // Function to apply direction, language, and RTL Bootstrap
+      function applyDirection(direction, lang) {
+        htmlElement.setAttribute('dir', direction);
+        htmlElement.setAttribute('lang', lang);
+        
+        // Update button text
+        if (direction === 'rtl') {
+          directionToggle.textContent = 'EN / العربية';
+          directionToggle.setAttribute('dir', 'rtl');
+        } else {
+          directionToggle.textContent = 'EN / العربية';
+          directionToggle.setAttribute('dir', 'ltr');
+        }
+        
+        // Load appropriate Bootstrap CSS
+        if (direction === 'rtl') {
+          // Load Bootstrap RTL version
+          bootstrapRtl.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css';
+          bootstrapRtl.integrity = 'sha384-l+d6P+e9zpTxJVGFrO+MtKQFZJjJZJqZVQX4VrGnHsIVzgFLW7L8LnVr0plFz0QiQ';
+        } else {
+          // Remove RTL Bootstrap
+          bootstrapRtl.href = '';
+        }
+      }
+    }
+    
     // Load saved reflections from local storage
     function loadReflections() {
       const webpage = localStorage.getItem('reflection-webpage');
@@ -141,8 +339,43 @@
       alert('Reflections saved successfully!');
     }
 
-    // Load reflections when page loads
-    window.addEventListener('load', loadReflections);
+    // Newsletter form validation and submission
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize direction toggle
+      initializeDirectionToggle();
+      
+      const newsletterForm = document.querySelector('.newsletter-form');
+      
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const email = document.getElementById('emailInput').value;
+          const consent = document.getElementById('consentCheckbox').checked;
+          
+          // Basic validation
+          if (!email || !consent) {
+            alert('Please fill in all required fields.');
+            return;
+          }
+          
+          // Email validation regex
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+          }
+          
+          // Success message
+          alert('Thank you for subscribing! Check your email for confirmation.');
+          newsletterForm.reset();
+        });
+      }
+      
+      // Load reflections when page loads
+      loadReflections();
+    });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
